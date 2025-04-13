@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orquídeas Exclusivas - Transforme Suas Plantas em Obras de Arte</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* RESET E FONTES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap');
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* ESTILOS GERAIS */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 60px 0;
+            position: relative;
+        }
+        
+        h1, h2, h3 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        /* ANIMAÇÕES PERSONALIZADAS */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(2deg); }
+            75% { transform: rotate(-2deg); }
+        }
+        
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.imgur.com/J5Q8b0a.png') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header h1 {
+            font-size: 3.2em;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: 15px;
+            animation: fadeInDown 1s both;
+        }
+        
+        .header p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto 25px;
+            animation: fadeInUp 1s 0.3s both;
+        }
+        
+        /* IMAGENS DESTAQUE */
+        .destaque-imagens {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .destaque-img {
+            width: 45%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            transition: all 0.5s;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .destaque-img:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        
+        .destaque-img:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        /* OFERTA DESTAQUE */
+        .oferta-destaque {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px auto;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            text-align: center;
+            border: 4px solid #FFEB3B;
+            position: relative;
+            overflow: hidden;
+            animation: shake 5s infinite;
+        }
+        
+        .oferta-destaque::after {
+            content: "OFERTA RELÂMPAGO";
+            position: absolute;
+            top: 20px;
+            right: -50px;
+            background: #FF5722;
+            color: white;
+            padding: 10px 60px;
+            transform: rotate(45deg);
+            font-weight: bold;
+            font-size: 0.9em;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .preco-antigo {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.8em;
+            display: block;
+        }
+        
+        .preco-novo {
+            font-size: 4em;
+            color: #FF5722;
+            font-weight: 900;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            display: inline-block;
+            background: linear-gradient(to right, #FF5722, #FF9800);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .parcelamento {
+            color: #666;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+        
+        /* BOTÃO PRINCIPAL */
+        .btn-principal {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF5722, #FF9800);
+            color: white;
+            padding: 22px 50px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.4em;
+            margin-top: 20px;
+            box-shadow: 0 10px 25px rgba(255,87,34,0.4);
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            animation: pulse 2s infinite, rubberBand 3s infinite;
+        }
+        
+        .btn-principal::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
+        .btn-principal:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255,87,34,0.6);
+        }
+        
+        .btn-principal:hover::before {
+            left: 100%;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* PRODUTOS */
+        .produtos {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 60px 0;
+            gap: 30px;
+        }
+        
+        .produto {
+            width: 48%;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .produto::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, #4CAF50, #8BC34A);
+            transition: all 0.4s;
+        }
+        
+        .produto:nth-child(2)::before {
+            background: linear-gradient(to bottom, #FF5722, #FF9800);
+        }
+        
+        .produto:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .produto:hover::before {
+            width: 10px;
+        }
+        
+        .produto h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .produto h3::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4CAF50;
+        }
+        
+        .produto:nth-child(2) h3::before {
+            background: #FF5722;
+        }
+        
+        .produto ul {
+            list-style-type: none;
+        }
+        
+        .produto li {
+            padding: 12px 0;
+            position: relative;
+            padding-left: 35px;
+            font-size: 1.1em;
+        }
+        
+        .produto li:before {
+            content: "✓";
+            color: #4CAF50;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+        
+        .produto:nth-child(2) li:before {
+            color: #FF5722;
+        }
+        
+        /* DEPOIMENTOS */
+        .depoimentos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 60px 0;
+            gap: 30px;
+        }
+        
+        .depoimento {
+            width: 48%;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+            transition: all 0.4s;
+        }
+        
+        .depoimento:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .depoimento:before {
+            content: """;
+            font-size: 100px;
+            color: #4CAF50;
+            opacity: 0.1;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .depoimento p {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            font-size: 1.1em;
+        }
+        
+        .depoimento .autor {
+            font-weight: bold;
+            color: #4CAF50;
+            text-align: right;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        
+        .depoimento .autor::before {
+            content: "";
+            display: inline-block;
+            width: 30px;
+            height: 2px;
+            background: #4CAF50;
+            margin-right: 15px;
+        }
+        
+        /* GARANTIA */
+        .garantia {
+            background: linear-gradient(135deg, #FFF3E0, #FFECB3);
+            border-left: 8px solid #FF9800;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .garantia::before {
+            content: "✓";
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 120px;
+            color: #FF9800;
+            opacity: 0.2;
+        }
+        
+        .garantia h3 {
+            color: #FF5722;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        
+        .garantia p {
+            font-size: 1.2em;
+            max-width: 80%;
+        }
+        
+        /* RODAPÉ */
+        .footer {
+            background: linear-gradient(135deg, #333, #111);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #4CAF50, #FF5722);
+        }
+        
+        .contador {
+            font-size: 1.8em;
+            color: #FF5722;
+            font-weight: bold;
+            margin: 30px 0;
+            background: white;
+            padding: 15px 30px;
+            border-radius: 60px;
+            display: inline-block;
+            box-shadow: 0 5px 20px rgba(255,87,34,0.3);
+        }
+        
+        /* ELEMENTOS FLUTUANTES */
+        .floating {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        .floating-1 {
+            top: 10%;
+            left: 5%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-2 {
+            bottom: 15%;
+            right: 5%;
+            animation: float 7s ease-in-out infinite reverse;
+        }
+        
+        /* RESPONSIVO */
+        @media (max-width: 992px) {
+            .destaque-img {
+                width: 100%;
+                max-width: 500px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .produto, .depoimento {
+                width: 100%;
+            }
+            
+            .garantia p {
+                max-width: 100%;
+            }
+            
+            .oferta-destaque::after {
+                font-size: 0.7em;
+                right: -60px;
+                top: 15px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .btn-principal {
+                padding: 18px 30px;
+                font-size: 1.2em;
+            }
+            
+            .preco-novo {
+                font-size: 3em;
+            }
+            
+            .oferta-destaque::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ELEMENTOS DECORATIVOS -->
+    <img src="https://i.imgur.com/J5Q8b0a.png" class="floating floating-1" width="150">
+    <img src="https://i.imgur.com/J5Q8b0a.png" class="floating floating-2" width="200">
+    
+    <!-- CABEÇALHO -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="animate__animated animate__fadeInDown">ORQUÍDEAS MAIS LINDAS DO BRASIL</h1>
+                <p class="animate__animated animate__fadeInUp animate__delay-1s">Transforme suas orquídeas em obras de arte que vendem sozinhas - método aprovado por 1.237 clientes!</p>
+                
+                <div class="destaque-imagens">
+                    <img src="https://sdmntprwestus2.oaiusercontent.com/files/00000000-ae28-61f8-820b-60e467514777/raw?se=2025-04-13T01%3A59%3A58Z&sp=r&sv=2024-08-04&sr=b&scid=8dabfdce-a98a-54ad-9966-11dc1cf30fc2&skoid=b53ae837-f585-4db7-b46f-2d0322fce5a9&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-13T00%3A27%3A39Z&ske=2025-04-14T00%3A27%3A39Z&sks=b&skv=2024-08-04&sig=pbsowDxtnM%2Bv%2BHDx7tzgRhB/nGoDFlFYSPzZJgDSbv4%3D" alt="Orquídea Azul Gerada por IA" class="destaque-img animate__animated animate__zoomIn animate__delay-2s">
+                    >
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- OFERTA PRINCIPAL -->
+    <section class="container">
+        <div class="oferta-destaque animate__animated animate__pulse animate__infinite">
+            <h2>OFERTA COMBO EXCLUSIVA</h2>
+            <p style="margin-bottom: 30px; font-size: 1.2em;">Aproveite esta oferta por tempo limitado e leve TUDO com super desconto!</p>
+            
+            <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin: 40px 0;">
+                <div style="text-align: center;">
+                    <h3>Guia Completo</h3>
+                    <p style="font-size: 1.4em;">De: <span class="preco-antigo">R$97</span></p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <h3>Kit Cores</h3>
+                    <p style="font-size: 1.4em;">De: <span class="preco-antigo">R$60</span></p>
+                </div>
+            </div>
+            
+            <h3 style="color: #FF5722; font-size: 2em; margin: 20px 0;">HOJE APENAS:</h3>
+            <p class="preco-novo">R$97</p>
+            <p class="parcelamento">ou 12x de R$9,70</p>
+            
+            <a href="#comprar" class="btn-principal animate__animated animate__rubberBand animate__delay-2s animate__infinite">QUERO MINHAS ORQUÍDEAS PERFEITAS!</a>
+            
+            <div class="contador animate__animated animate__pulse animate__infinite">
+                ⏳ Oferta válida por: <span id="contador">12:00:00</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- PRODUTOS -->
+    <section class="container">
+        <h2 style="text-align: center; font-size: 2.5em;" class="animate__animated animate__fadeIn">O QUE VOCÊ VAI RECEBER</h2>
+        
+        <div class="produtos">
+            <div class="produto animate__animated animate__fadeInLeft">
+                <h3>📘 Guia Completo "Orquídea HULK" (R$97)</h3>
+                <ul>
+                    <li>Técnica de rega profissional (sem matar a planta)</li>
+                    <li>Fórmula de adubo caseiro barato</li>
+                    <li>Sensor de umidade com Arduino (código incluso)</li>
+                    <li>Como fazer mudas para vender</li>
+                    <li>Segredos de iluminação ideal</li>
+                    <li>Proteção contra pragas</li>
+                    <li>Técnicas de floração acelerada</li>
+                </ul>
+            </div>
+            
+            <div class="produto animate__animated animate__fadeInRight">
+                <h3>🎨 Kit "Orquídea Transformers" (R$60)</h3>
+                <ul>
+                    <li>Tinta orgânica para mudar a cor das pétalas</li>
+                    <li>Passo a passo de aplicação (sem matar a planta)</li>
+                    <li>7 cores disponíveis (incluindo azul e preto)</li>
+                    <li>Filtro Lightroom exclusivo para fotos</li>
+                    <li>Hashtags matadoras para Instagram</li>
+                    <li>Script de automação de vendas</li>
+                    <li>Modelos de anúncio prontos</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- DEPOIMENTOS -->
+    <section class="container">
+        <h2 style="text-align: center; font-size: 2.5em;" class="animate__animated animate__fadeIn">O QUE NOSSOS CLIENTES ESTÃO FALANDO</h2>
+        
+        <div class="depoimentos">
+            <div class="depoimento animate__animated animate__fadeInUp animate__delay-1s">
+                <p>"Minhas orquídeas eram feias e sem graça. Com o método, em 2 semanas já estava vendendo mudas por R$200 cada! Meu Instagram explodiu e agora tenho lista de espera."</p>
+                <div class="autor">– Ana Clara, Florianópolis</div>
+            </div>
+            
+            <div class="depoimento animate__animated animate__fadeInUp animate__delay-2s">
+                <p>"Nunca imaginei que dava pra mudar a cor das orquídeas! Agora tenho clientes enlouquecidos querendo as minhas. Vendi 50 mudas coloridas no primeiro mês!"</p>
+                <div class="autor">– Ricardo, Belo Horizonte</div>
+            </div>
+            
+            <div class="depoimento animate__animated animate__fadeInUp animate__delay-3s">
+                <p>"Comprei só pelo filtro do Instagram e acabei vendendo 20 mudas em 3 dias. Valeu cada centavo! Já recuperei o investimento 10 vezes."</p>
+                <div class="autor">– Juliana, São Paulo</div>
+            </div>
+            
+            <div class="depoimento animate__animated animate__fadeInUp animate__delay-4s">
+                <p>"Meu marido nem gostava de plantas, mas agora ele cuida das orquídeas coloridas como se fossem filhos! Virou nossa renda extra e hobby favorito."</p>
+                <div class="autor">– Fernanda, Rio de Janeiro</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- GARANTIA -->
+    <section class="container">
+        <div class="garantia animate__animated animate__fadeIn">
+            <h3>✅ GARANTIA INCONDICIONAL DE 7 DIAS</h3>
+            <p>Se em 1 semana suas orquídeas não estiverem pelo menos 50% mais bonitas e chamativas, devolvemos seu dinheiro E ainda te damos um bônus secreto de como vender plantas online! Sem perguntas, sem burocracia.</p>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#comprar" class="btn-principal animate__animated animate__pulse animate__infinite">SIM, QUERO ORQUÍDEAS DESLUMBRANTES!</a>
+            <p style="margin-top: 15px; font-size: 0.9em;">⏳ Últimas 12 horas com esse preço!</p>
+        </div>
+    </section>
+    
+    <!-- RODAPÉ -->
+    <footer class="footer">
+        <div class="container">
+            <p style="font-size: 1.2em;">© 2023 Orquídeas de Elite - Todos os direitos reservados</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">Este produto não garante resultados iguais para todos, pois dependem da dedicação de cada pessoa.</p>
+        </div>
+    </footer>
+    
+    <!-- CONTADOR REGRESSIVO -->
+    <script>
+        function atualizarContador() {
+            const contador = document.getElementById('contador');
+            let tempo = 12 * 60 * 60; // 12 horas em segundos
+            
+            const intervalo = setInterval(() => {
+                const horas = Math.floor(tempo / 3600);
+                const minutos = Math.floor((tempo % 3600) / 60);
+                const segundos = tempo % 60;
+                
+                contador.textContent = `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
+                
+                if (tempo <= 0) {
+                    clearInterval(intervalo);
+                    contador.textContent = "Oferta encerrada!";
+                    document.querySelector('.btn-principal').textContent = "OFERTA ESGOTADA!";
+                    document.querySelector('.btn-principal').style.background = "#999";
+                } else {
+                    tempo--;
+                }
+            }, 1000);
+        }
+        
+        window.onload = function() {
+            atualizarContador();
+            
+            // Anima elementos quando entram na viewport
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.produto, .depoimento, .garantia').forEach(el => {
+                observer.observe(el);
+            });
+        };
+    </script>
+</body>
+</html>
